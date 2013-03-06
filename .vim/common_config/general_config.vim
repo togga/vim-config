@@ -76,12 +76,9 @@
 " When lines are cropped at the screen bottom, show as much as possible
   set display=lastline
 
-" flip the default split directions to sane ones
-  set splitright
-  set splitbelow
-
 " don't beep for errors
-  set visualbell
+  set novisualbell
+  set noerrorbells
 
 " make backspace work in insert mode
   set backspace=indent,eol,start

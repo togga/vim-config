@@ -2,13 +2,9 @@
 " install plugins.
 
 " Plugins requiring no additional configuration or keymaps
-  Bundle "git://github.com/oscarh/vimerl.git"
   Bundle "git://github.com/tpope/vim-git.git"
-  Bundle "git://github.com/harleypig/vcscommand.vim.git"
   Bundle "git://github.com/altercation/vim-colors-solarized.git"
-  Bundle "git://github.com/tpope/vim-cucumber.git"
   Bundle "git://github.com/tpope/vim-endwise.git"
-  Bundle "git://github.com/tpope/vim-fugitive.git"
   Bundle "git://github.com/tpope/vim-haml.git"
   Bundle "git://github.com/pangloss/vim-javascript.git"
   Bundle "git://github.com/vim-scripts/L9.git"
@@ -23,7 +19,6 @@
   Bundle "git://github.com/tpope/vim-repeat.git"
   Bundle "git://github.com/vim-scripts/ruby-matchit.git"
   Bundle "git://github.com/wgibbs/vim-irblack.git"
-  Bundle "git://github.com/wavded/vim-stylus.git"
 
   " CtrlP - with FuzzyFinder compatible keymaps
   Bundle "git://github.com/kien/ctrlp.vim.git"
@@ -37,46 +32,13 @@
         \ 'AcceptSelection("v")': ['<c-k>', '<RightMouse>'],
         \ }
 
-  Bundle "git://github.com/smerrill/vim-arduino.git"
-    au BufNewFile,BufRead *.pde set filetype=arduino
-    au BufNewFile,BufRead *.ino set filetype=arduino
-
-" Mustache
-  Bundle "git://github.com/juvenn/mustache.vim.git"
-    " Copied from the plugin; not sure why it isn't working normally
-    au BufNewFile,BufRead *.mustache,*.handlebars,*.hbs set filetype=mustache
-
-" Slim
-  Bundle "git://github.com/slim-template/vim-slim.git"
-    au BufNewFile,BufRead *.slim set filetype=slim
-
 " Less
   Bundle "git://github.com/groenewege/vim-less.git"
     au BufNewFile,BufRead *.less set filetype=less
 
-" Handlebars
-  Bundle "git://github.com/nono/vim-handlebars.git"
-    au BufNewFile,BufRead *.hbs set filetype=handlebars
-
-" Stylus
-  Bundle "git://github.com/wavded/vim-stylus.git"
-    au BufNewFile,BufRead *.styl set filetype=stylus
-
 " Coffee script
   Bundle "git://github.com/kchmck/vim-coffee-script.git"
     au BufNewFile,BufRead *.coffee set filetype=coffee
-
-
-" ACK
-  Bundle "git://github.com/mileszs/ack.vim.git"
-    nmap g/ :Ack!<space>
-    nmap g* :Ack! -w <C-R><C-W><space>
-    nmap ga :AckAdd!<space>
-    nmap gn :cnext<CR>
-    nmap gp :cprev<CR>
-    nmap gq :ccl<CR>
-    nmap gl :cwindow<CR>
-
 
 " Tagbar for navigation by tags using CTags
   Bundle "git://github.com/majutsushi/tagbar.git"
@@ -94,88 +56,6 @@
       nmap <Leader>rf :wa<CR> :RunRubyFocusedUnitTest<CR>
       nmap <Leader>rl :wa<CR> :RunLastRubyTest<CR>
   endif
-
-
-" Markdown syntax highlighting
-  Bundle "git://github.com/tpope/vim-markdown.git"
-    augroup mkd
-      autocmd BufNewFile,BufRead *.mkd      set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-      autocmd BufNewFile,BufRead *.md       set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-      autocmd BufNewFile,BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-    augroup END
-
-
-" Markdown preview to quickly preview markdown files
-  Bundle "git://github.com/maba/vim-markdown-preview.git"
-  map <buffer> <Leader>mp :Mm<CR>
-
-
-" NERDTree for project drawer
-  Bundle "git://github.com/scrooloose/nerdtree.git"
-    let NERDTreeHijackNetrw = 0
-
-    nmap gt :NERDTreeToggle<CR>
-    nmap g :NERDTree \| NERDTreeToggle \| NERDTreeFind<CR>
-
-
-" Tabular for aligning text
-  Bundle "git://github.com/godlygeek/tabular.git"
-    function! CustomTabularPatterns()
-      if exists('g:tabular_loaded')
-        AddTabularPattern! symbols         / :/l0
-        AddTabularPattern! hash            /^[^>]*\zs=>/
-        AddTabularPattern! chunks          / \S\+/l0
-        AddTabularPattern! assignment      / = /l0
-        AddTabularPattern! comma           /^[^,]*,/l1
-        AddTabularPattern! colon           /:\zs /l0
-        AddTabularPattern! options_hashes  /:\w\+ =>/
-      endif
-    endfunction
-
-    autocmd VimEnter * call CustomTabularPatterns()
-
-    " shortcut to align text with Tabular
-    map <Leader>a :Tabularize<space>
-
-" ZoomWin to fullscreen a particular buffer without losing others
-  Bundle "git://github.com/vim-scripts/ZoomWin.git"
-    map <Leader>z :ZoomWin<CR>
-
-
-" Unimpaired for keymaps for quicky manipulating lines and files
-  Bundle "git://github.com/tpope/vim-unimpaired.git"
-    " Bubble single lines
-    nmap <C-Up> [e
-    nmap <C-Down> ]e
-
-    " Bubble multiple lines
-    vmap <C-Up> [egv
-    vmap <C-Down> ]egv
-
-
-" Syntastic for catching syntax errors on save
-  Bundle "git://github.com/scrooloose/syntastic.git"
-    let g:syntastic_enable_signs=1
-    let g:syntastic_quiet_warnings=1
-    let g:syntastic_disabled_filetypes = ['sass']
-
-
-" gist-vim for quickly creating gists
-  Bundle "git://github.com/mattn/gist-vim.git"
-    if has("mac")
-      let g:gist_clip_command = 'pbcopy'
-    elseif has("unix")
-      let g:gist_clip_command = 'xclip -selection clipboard'
-    endif
-
-    let g:gist_detect_filetype = 1
-    let g:gist_open_browser_after_post = 1
-
-
-" gundo for awesome undo tree visualization
-  Bundle "git://github.com/sjl/gundo.vim.git"
-    map <Leader>h :GundoToggle<CR>
-
 
 " rails.vim, nuff' said
   Bundle "git://github.com/tpope/vim-rails.git"
@@ -197,11 +77,22 @@
     " = to surround with output erb tag
     let g:surround_61 = "<%= \r %>"
 
-" Clojure Highlighting"
-  Bundle "https://github.com/vim-scripts/VimClojure.git"
-  autocmd BufNewFile,BufRead *.clj set filetype=clojure
+" Command-T
+  Bundle 'git://git.wincent.com/command-t.git'
+    let g:CommandTCancelMap='<Esc>'
+    nmap <silent> <C-t> :CommandT<CR>
+    nmap <silent> <C-b> :CommandTBuffer<CR>
 
+" Minibuf explorer
+    Bundle 'git://github.com/fholgado/minibufexpl.vim.git'
+    let g:miniBufExplMapWindowNavVim = 1
+    let g:miniBufExplMapWindowNavArrows = 1
+    let g:miniBufExplMapCTabSwitchBufs = 1
+    let g:miniBufExplModSelTarget = 1
+    hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+    hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+    hi MBEVisibleChanged guifg=#F1266F guibg=fg
+    hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+    hi MBEChanged guifg=#CD5907 guibg=fg
+    hi MBENormal guifg=#808080 guibg=fg
 
-" Jade Highlighting"
-  Bundle "git://github.com/digitaltoad/vim-jade.git"
-  autocmd BufNewFile,BufRead *.jade set filetype=jade
