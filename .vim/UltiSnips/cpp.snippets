@@ -1,0 +1,24 @@
+snippet gtest "GTest file skeleton" b
+#include <gtest/gtest.h>
+
+namespace
+{
+  // ---------------------------------------------------------------------------
+
+  struct ${1:`!v fnamemodify(bufname('%'), ':t:r')`} : public ::testing::Test
+  {
+    $1()
+    {
+    }
+  };
+
+  TEST_F($1, Hookup)
+  {
+    EXPECT_EQ(0, 1);
+  }
+}
+endsnippet
+
+snippet ptime "Boost posix_time ptime" i
+boost::posix_time::ptime
+endsnippet
