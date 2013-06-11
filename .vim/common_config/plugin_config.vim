@@ -1,6 +1,8 @@
 " Plugins are managed by Vundle. Once VIM is open run :BundleInstall to
 " install plugins.
 
+  filetype off
+
 " Plugins requiring no additional configuration or keymaps
   Bundle "git://github.com/tpope/vim-git.git"
   Bundle "git://github.com/altercation/vim-colors-solarized.git"
@@ -20,6 +22,7 @@
   Bundle "git://github.com/vim-scripts/ruby-matchit.git"
   Bundle "git://github.com/wgibbs/vim-irblack.git"
   Bundle "git://github.com/rodjek/vim-puppet.git"
+  Bundle "git://github.com/SirVer/ultisnips.git"
 
   " CtrlP - with FuzzyFinder compatible keymaps
   Bundle "git://github.com/kien/ctrlp.vim.git"
@@ -97,3 +100,5 @@
     hi MBEChanged guifg=#CD5907 guibg=fg
     hi MBENormal guifg=#808080 guibg=fg
 
+
+filetype plugin indent on
