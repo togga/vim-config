@@ -22,3 +22,23 @@ endsnippet
 snippet ptime "Boost posix_time ptime" i
 boost::posix_time::ptime
 endsnippet
+
+snippet #po "Pragma once"
+#pragma once
+
+
+endsnippet
+
+snippet nam "Namespace" !b
+namespace $1
+{
+  $2
+}
+endsnippet
+
+snippet test "TEST_F" !b
+TEST_F(${1:`!v fnamemodify(bufname('%'), ':t:r')`}, $2)
+{
+  $3
+}
+endsnippet

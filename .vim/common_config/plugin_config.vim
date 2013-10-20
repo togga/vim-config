@@ -22,7 +22,15 @@
   Bundle "git://github.com/vim-scripts/ruby-matchit.git"
   Bundle "git://github.com/wgibbs/vim-irblack.git"
   Bundle "git://github.com/rodjek/vim-puppet.git"
+  Bundle "bling/vim-airline"
+
+  " Ultisnip
   Bundle "git://github.com/SirVer/ultisnips.git"
+  let g:UltiSnipsExpandTrigger="<c-j>"
+
+  " YouCompleteMe
+  " Need vim 7.3.584 (http://valloric.github.io/YouCompleteMe/)
+  " Bundle "git://github.com/Valloric/YouCompleteMe.git"
 
   " CtrlP - with FuzzyFinder compatible keymaps
   Bundle "git://github.com/kien/ctrlp.vim.git"
@@ -67,7 +75,7 @@
     map <Leader>ov :Rview<Space>
     map <Leader>om :Rmodel<Space>
     map <Leader>oh :Rhelper<Space>
-    map <Leader>oj :Rjavascript<Space>
+    "map <Leader>oj :Rjavascript<Space>
     map <Leader>os :Rstylesheet<Space>
     map <Leader>oi :Rintegration<Space>
 
@@ -84,21 +92,34 @@
 " Command-T
   Bundle 'git://git.wincent.com/command-t.git'
     let g:CommandTCancelMap='<Esc>'
-    nmap <silent> <C-t> :CommandT<CR>
+    nmap <silent> <C-Space> :CommandT<CR>
+    nmap <silent> <Leader><Space> :CommandT<CR>
     nmap <silent> <C-b> :CommandTBuffer<CR>
 
 " Minibuf explorer
-    Bundle 'git://github.com/fholgado/minibufexpl.vim.git'
-    let g:miniBufExplMapWindowNavVim = 1
-    let g:miniBufExplMapWindowNavArrows = 1
-    let g:miniBufExplMapCTabSwitchBufs = 1
-    let g:miniBufExplModSelTarget = 1
-    hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-    hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-    hi MBEVisibleChanged guifg=#F1266F guibg=fg
-    hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-    hi MBEChanged guifg=#CD5907 guibg=fg
-    hi MBENormal guifg=#808080 guibg=fg
+    "Bundle 'git://github.com/fholgado/minibufexpl.vim.git'
+    "let g:miniBufExplMapWindowNavVim = 1
+    "let g:miniBufExplMapWindowNavArrows = 1
+    "let g:miniBufExplMapCTabSwitchBufs = 1
+    "let g:miniBufExplModSelTarget = 1
+    "hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+    "hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+    "hi MBEVisibleChanged guifg=#F1266F guibg=fg
+    "hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+    "hi MBEChanged guifg=#CD5907 guibg=fg
+    "hi MBENormal guifg=#808080 guibg=fg
 
+" C++ protodef & fswitch
+  Bundle "git://github.com/derekwyatt/vim-protodef.git"
+  Bundle "git://github.com/derekwyatt/vim-fswitch.git"
+    nmap <silent> <Leader>of :FSHere<cr>
+    nmap <silent> <Leader>ol :FSRight<cr>
+    nmap <silent> <Leader>oL :FSSplitRight<cr>
+    nmap <silent> <Leader>oh :FSLeft<cr>
+    nmap <silent> <Leader>oH :FSSplitLeft<cr>
+    nmap <silent> <Leader>ok :FSAbove<cr>
+    nmap <silent> <Leader>oK :FSSplitAbove<cr>
+    nmap <silent> <Leader>oj :FSBelow<cr>
+    nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
 filetype plugin indent on
