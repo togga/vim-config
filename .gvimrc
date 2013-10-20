@@ -33,4 +33,6 @@
   set background=dark
   colors zenburn
 
+set guifont=monoOne\ 11
+
 runtime! custom_config/*.gvim
